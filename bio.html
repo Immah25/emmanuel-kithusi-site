@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emmanuel Kithusi - Bio | Full Stack Data Scientist in Training</title>
+  <meta name="description" content="Learn more about Emmanuel Kithusi, an aspiring full stack data scientist passionate about transforming lives through data, technology, and mentorship." />
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Emmanuel Kithusi - Bio" />
+  <meta property="og:description" content="Explore Emmanuel Kithusi's background, passion for data science, and mission to inspire through technology and education." />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+  <meta property="og:url" content="https://yourdomain.com/bio.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Emmanuel Kithusi - Bio" />
+  <meta name="twitter:description" content="Meet Emmanuel Kithusi — an ambitious data scientist in training with a heart for mentorship and impact." />
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Load typed.js from CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>Emmanuel Kithusi</h1>
+    <p class="tagline">Aspiring <span id="typed"></span></p>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="elevator.html">Elevator Pitch</a></li>
+      </ul>
+    </nav>
+
+    <button id="toggle-theme" aria-label="Toggle dark/light mode">🌙</button>
+  </header>
+
+  <div class="section-divider"></div>
+
+  <section class="content-section">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm Emmanuel Kithusi, an aspiring full data scientist committed to transforming raw data into impactful, real-world solutions. My passion lies in combining analytical thinking with creativity to solve complex problems.
+    </p>
+    <p>
+      Currently, I’m building a strong foundation in data science, expanding my skills in Python, machine learning, and data engineering. Alongside, I’m learning backend engineering to enhance my capability as a full-stack data scientist.
+    </p>
+    <p>
+      Outside of coding and data, I’m passionate about mentoring and inspiring others, helping transform lives through education and technology.
+    </p>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section class="content-section" id="contact">
+    <h2>Contact</h2>
+    <p>You can reach me through any of the following channels:</p>
+    
+    <ul class="contact-list">
+      <li>
+        📧<a href="mailto:kithusiemmanuel3@gmail.com" aria-label="Send an email to Emmanuel Kithusi">
+          kithusiemmanuel3@gmail.com
+        </a>
+      </li>
+      <li>
+        📱 <a href="tel:+254792752985" aria-label="Call Emmanuel Kithusi">
+          +254 792752985
+        </a>
+      </li>
+      <li>
+        💼 <a href="https://www.linkedin.com/in/emmanuel-kithusi-043473304" target="_blank" rel="noopener noreferrer" aria-label="Visit Emmanuel Kithusi's LinkedIn profile">
+          LinkedIn Profile
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Emmanuel Kithusi. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Dark mode toggle
+      const toggle = document.getElementById("toggle-theme");
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggle.textContent = "☀️";
+      } else {
+        toggle.textContent = "🌙";
+      }
+      toggle.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        toggle.textContent = isDark ? "☀️" : "🌙";
+      });
+
+      // Initialize typed.js on the tagline span
+      new Typed("#typed", {
+        strings: [
+          "Full Stack Data Scientist",
+          "Backend Developer",
+          "Data Engineer",
+          "Problem solver"
+          
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: true,
+        backDelay: 1500,
+      });
+
+      // Smooth page fade transition on link clicks
+      const anchors = document.querySelectorAll("a[href]");
+      anchors.forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href && !href.startsWith("#") && !this.hasAttribute("target")) {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+              window.location.href = href;
+            }, 300);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
