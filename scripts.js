@@ -10,12 +10,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 2. Active navigation link highlighting
+  // 2. Initial active navigation link highlighting based on URL
   const navLinks = document.querySelectorAll('.nav-links a');
   navLinks.forEach(link => {
     if (link.href === window.location.href) {
       link.classList.add('active');
     }
+  });
+
+  // 2b. Scroll-based active nav link highlighting
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 60; // adjust for fixed header height if any
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${sectionId}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
   });
 
   // 3. Back to top button functionality
@@ -125,4 +146,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
