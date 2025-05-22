@@ -98,6 +98,7 @@ nav {
   background-color: var(--light-link-hover);
   box-shadow: 0 0 8px var(--light-link-hover);
   font-weight: 700;
+  border-bottom: none;
 }
 
 .nav-links li a:hover,
@@ -118,12 +119,15 @@ body.dark-mode .nav-links li a.active {
   color: #222;
   background-color: var(--dark-link-hover);
   box-shadow: 0 0 8px var(--dark-link-hover);
+  font-weight: 700;
+  border-bottom: none;
 }
 
 body.dark-mode .nav-links li a:hover,
 body.dark-mode .nav-links li a:focus {
   color: var(--dark-link-hover);
   background-color: rgba(234, 179, 8, 0.15);
+  text-decoration: none;
   outline: 2px solid var(--dark-link-hover);
   outline-offset: 3px;
 }
@@ -207,7 +211,7 @@ body.dark-mode .nav-links li a:focus {
   background: #ffffff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
 }
 
@@ -292,6 +296,18 @@ body.dark-mode {
 body.dark-mode .hero {
   background: var(--dark-hero-gradient);
   color: var(--dark-text);
+}
+
+body.dark-mode .nav-links li a {
+  color: var(--dark-text);
+}
+
+body.dark-mode .nav-links li a:hover,
+body.dark-mode .nav-links li a:focus {
+  color: var(--dark-link-hover);
+  text-decoration: underline;
+  outline: 2px solid var(--dark-link-hover);
+  outline-offset: 3px;
 }
 
 body.dark-mode #toggle-theme {
