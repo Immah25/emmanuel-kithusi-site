@@ -364,4 +364,14 @@ body.dark-mode .site-footer {
   #menu-toggle {
     display: none;
   }
+  * {
+  outline: 1px solid red; /* visual layout debug */
+}
+html, body {
+  overflow: auto !important;
+  height: auto !important;
+}
+section {
+  display: block !important;
+}
 }
