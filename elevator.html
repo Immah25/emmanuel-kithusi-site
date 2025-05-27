@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Elevator Pitch - Emmanuel Kithusi</title>
-  <meta name="description" content="Elevator pitch video page of Emmanuel Kithusi — aspiring Full Stack Data Scientist. Coming soon!" />
+  <meta name="description" content="Elevator pitch video page of Emmanuel Kithusi — aspiring Full Stack Data Scientist." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="favicon.png" />
 </head>
@@ -27,9 +27,15 @@
 
   <main class="content-section">
     <section>
-      <h2>Elevator Pitch Placeholder</h2>
-      <p>This page will host my elevator pitch video soon. For now, consider this a placeholder.</p>
-      <p>Stay tuned for the video update in Week 12!</p>
+      <h2>Elevator Pitch</h2>
+      <p>Here’s a short introduction about me and what I do. Watch the video below:</p>
+
+      <div class="video-container" style="max-width: 800px; margin: 0 auto; border-radius: 12px; overflow: hidden;">
+        <video controls width="100%" style="border-radius: 12px;">
+          <source src="Elevator pitch video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
     </section>
   </main>
 
@@ -76,44 +82,41 @@
         });
       });
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+
+      menuToggle?.addEventListener('click', () => {
+        navLinks?.classList.toggle('show');
+      });
+
+      navLinks?.querySelectorAll('a')?.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('show');
+        });
+      });
+
+      const navItems = document.querySelectorAll('.nav-links a');
+      window.addEventListener('scroll', () => {
+        let fromTop = window.scrollY;
+        navItems.forEach(link => {
+          const section = document.querySelector(link.hash);
+          if (
+            section &&
+            section.offsetTop <= fromTop + 100 &&
+            section.offsetTop + section.offsetHeight > fromTop + 100
+          ) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      });
+    });
   </script>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    // Toggle mobile menu on hamburger click
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-
-    // Close mobile menu when any nav link is clicked
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-      });
-    });
-
-    // Highlight nav links on scroll
-    const navItems = document.querySelectorAll('.nav-links a');
-    window.addEventListener('scroll', () => {
-      let fromTop = window.scrollY;
-      navItems.forEach(link => {
-        const section = document.querySelector(link.hash);
-        if (
-          section &&
-          section.offsetTop <= fromTop + 100 &&
-          section.offsetTop + section.offsetHeight > fromTop + 100
-        ) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    });
-  });
-</script>
 </body>
 </html>
+
 
 
